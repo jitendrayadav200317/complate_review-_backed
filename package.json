@@ -6,14 +6,15 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "dev":"nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
- 
   "dependencies": {
+    "@imagekit/nodejs": "^7.10.0",
     "mongoose": "^9.8.0",
+    "multer": "^2.2.0",
     "nodemon": "^3.1.14"
   }
 }
