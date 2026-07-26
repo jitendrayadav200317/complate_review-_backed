@@ -32,6 +32,12 @@ app.post("/create-post", upload.single("image"), async (req, res) => {
   }
 });
 
-app.get("/create-post", async (req, res) => {});
+app.get("/create-post", async (req, res) => {
+  const posts = await postModel.find();
+  return res.status(200).json({
+    message: "Posts fetched successfully",
+    posts,
+  });
+});
 
 export default app;
