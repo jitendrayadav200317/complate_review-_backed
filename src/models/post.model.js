@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const postSchama = new mongoose.Schema({
-  Image: String,
+const postSchema = new mongoose.Schema({
+  image: String,
   caption: String,
 });
 
-const postModel = mongoose.model("post", postSchama);
+const postModel = mongoose.model("post", postSchema);
 export default postModel;
