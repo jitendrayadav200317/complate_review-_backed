@@ -1,17 +1,20 @@
 import express from "express";
 import multer from "multer";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import uploadFile from "./services/storage.service.js";
 import postModel from "./models/post.model.js";
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 app.use(express.json());
 dotenv.config();
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-app.post("/create-post", upload.single("image"), async (req, res) => {
+app.post("/create", upload.single("image"), async (req, res) => {
   try {
     const result = await uploadFile(req.file.buffer);
 
@@ -32,7 +35,7 @@ app.post("/create-post", upload.single("image"), async (req, res) => {
   }
 });
 
-app.get("/create-post", async (req, res) => {
+app.get("/posts", async (req, res) => {
   const posts = await postModel.find();
   return res.status(200).json({
     message: "Posts fetched successfully",

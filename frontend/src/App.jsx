@@ -1,15 +1,14 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const Home = () => <h1>Home Page</h1>;
-const About = () => <h1>About Page</h1>;
+import CreatePost from "./pages/CreatePost.jsx";
+import Feed from "./pages/Feed.jsx";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<CreatePost />} />
+        <Route path="/Feed" element={<Feed />} />
       </Routes>
     </Router>
   );
